@@ -1,0 +1,136 @@
+{
+  "users": [
+    {
+      "id": "01",
+      "name": "Richard Stallman",
+      "email": "rms@osf.com",
+      "password": "password123",
+      "role": "amdin",
+      "mobile_phone": "09984776263"
+    },
+    {
+      "id": "02",
+      "name": "Peter Thiel",
+      "email": "peter@osf.com",
+      "password": "password123",
+      "role": "manager",
+      "mobile_phone": "09984232263"
+    },
+    {
+      "id": "03",
+      "name": "Guy Kawasaki",
+      "email": "kawasaki@osf.com",
+      "password": "password123",
+      "role": "supervisor",
+      "mobile_phone": "09984398742"
+    },
+    {
+      "id": "04",
+      "name": "Sergey Brin",
+      "email": "brin@osf.com",
+      "password": "password123",
+      "role": "staff",
+      "mobile_phone": "09984773456"
+    },
+    {
+      "id": "05",
+      "name": "Marc Andreessen",
+      "email": "andreessen@osf.com",
+      "password": "password123",
+      "role": "staff",
+      "mobile_phone": "09984771221"
+    }
+  ],
+  "schools": [
+    {
+      "name": "Nexus",
+      "address": [
+        { "main": "Bldg A-6, Level 2, Weggi Yeikthar St., Pyi Yeik Mon Housing, K Centre" }
+      ],
+      "township": "Kamayut",
+      "location": "Yangon",
+      "phone": ["01-504647", "01-504757", "09-263310931"],
+      "email": "info@nexus.com",
+      "type": "private",
+      "sub-type": ["language-school"],
+      "subjects": ["english"]
+    },
+    {
+      "name": "NIEC",
+      "address": [
+        { "main": "27, Dhamar Yone St., Near Moe Kaung Rd., Near Moe Kaung Pagoda Compound, Ward (13)" }
+      ],
+      "township": "Kamayut",
+      "location": "Yangon",
+      "phone": ["01-8550727", "01-8550728"],
+      "email": "info@niec.com",
+      "type": "private",
+      "sub-type": ["high-school", "language-school"],
+      "subjects": ["english"],
+      "international": true
+    },
+    {
+      "name": "SDEC",
+      "address": [
+        { "main": "22-A/22-C/24-A, Nat Mauk St." }
+      ],
+      "township": "Bahan",
+      "location": "Yangon",
+      "phone": ["09-73206650", "09-5144987", "09-73015969"],
+      "email": "info@sdec.com",
+      "type": "private",
+      "sub-type": ["pre-school", "primary-school", "secondary-school"],
+      "international": true
+    },
+    {
+      "name": "CAE",
+      "address": [
+        { "main": "53, Bet; 32 St. and 33 St. & Bet; 63 St. and 64 St., Mya Yadanar Lane" }
+      ],
+      "township": "Chan Aye Thar Zan",
+      "location": "Mandalay",
+      "phone": ["02-35291", "09-2006065"],
+      "email": "info@cae.com",
+      "type": "private",
+      "sub-type": ["high-school"]
+    },
+    {
+      "name": "Pyin Nyar Kabar",
+      "address": [
+        { "main": "21, Myin Taw Thar Rd" }
+      ],
+      "township": "Thaketa",
+      "location": "Yangon",
+      "phone": ["09-5048392", "09-252889844"],
+      "email": "info@pyinnyarkabar.com",
+      "type": "private",
+      "sub-type": ["high-school"]
+    },
+    {
+      "name": "Art & Craft",
+      "address": [
+        { "main": "262/20(A), Bet; 31 St. and 32 St. & Bet; 85 St. and 86 St., Malon Htan Hlyat Tan" }
+      ],
+      "township": "Chan Aye Thar Zan",
+      "location": "Mandalay",
+      "phone": ["09-33039707", "09-797287350"],
+      "email": "info@artandcraft.com",
+      "type": "private",
+      "sub-type": ["general-interest"],
+      "subjects": ["art-craft"]
+    },
+    {
+      "name": "Aozora Co.,Ltd",
+      "address": [
+        { "main": "26, 4th Flr, East Race Course Rd., Corner of 166th St" }
+      ],
+      "township": "Tarmwe",
+      "location": "Yangon",
+      "phone": ["09-765059523", "09-453125887"],
+      "email": "aozorajlc0034@gmail.com",
+      "type": "private",
+      "sub-type": ["language-school"],
+      "subjects": ["japanese"]
+    }
+  ]
+}
