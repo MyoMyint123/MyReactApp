@@ -12,7 +12,7 @@ class UserTable extends Component{
           };
         return(
             <div className="page-content">
-                <table className="table">
+                <table className="table table-bordered">
                     <thead>
                         <tr>
                             <th>No.</th> 
@@ -30,7 +30,7 @@ class UserTable extends Component{
                                     <td>{user.name}</td>
                                     <td>{user.email}</td>
                                     <td>{user.mobile_phone}</td>
-                                    <td><button onClick={()=>callbackDetail(user.id)}>Detail</button></td>
+                                    <td><button className="btn btn-primary btn-sm" onClick={()=>callbackDetail(user.id)}>Detail</button></td>
                                 </tr>
                                 
                             )

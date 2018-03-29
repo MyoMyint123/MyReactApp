@@ -11,7 +11,7 @@ const UserDetail = (props) =>{
                 </ul>
             </div>
             <div>
-                <button onClick={props.callbackBack}>Back</button>
+                <button className="btn btn-default" onClick={props.callbackBack}>Back</button>
             </div>
         </div>
     )
