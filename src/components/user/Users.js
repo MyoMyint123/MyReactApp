@@ -2,34 +2,58 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { loadUsers } from '../../actions/actions'
+import Page from '../Page'
+import { getUsers, getUserDetail } from '../../services/api'
+import UserTable from './UserTable'
+import UserDetail from './UserDetail'
 
 
 class Users extends Component {
   constructor(props) {
-    super(props)
-  }
- 
-  componentDidMount() {
+    super(props);
+    this.state = {
+      show: true,
+      detail: false, 
+      detailData: null     
+    };
 
-      const user = [{name:'Myo Myint Kyi'}]
-    this.props.dispatch(loadUsers(user))
+  }
+
+  componentDidMount() {
+    getUsers().then((data) => {
+      this.props.dispatch(loadUsers(data))
+    });    
+  }
+
+  handleDetail = (idSlug) =>{
+    getUserDetail(idSlug).then((data)=>{
+      this.setState({detailData: data[0], show: false, detail: true})
+    })
+  }
+
+  handleDefault = () =>{
+    this.setState({show: true, detail: false});
   }
   
   render() {
-    const { users} = this.props
+    const { users} = this.props;
+    const { show, detail, detailData } = this.state;
     return (
-      <div>
-        <ul>
+      <Page>
         {
-            users.map((user,index)=>{
-                return(
-                    <li key={index}>{user.name}</li>
-                )
-            }
-            )
+          show  ?
+                <UserTable users={users} callbackDetail={(idSlug)=>this.handleDetail(idSlug)} />
+                :
+                null
         }
-        </ul>
-      </div>
+        {
+          detail ?
+                  <UserDetail user={detailData} callbackBack={this.handleDefault} />
+                  :
+                  null
+        }
+        
+      </Page>
     )
   }
 }
