@@ -6,8 +6,9 @@ const UserDetail = (props) =>{
             <div>
                 <ul>
                     <li>{props.user.name}</li>          
-                    <li>{props.user.email}</li>             
-                    <li>{props.user.mobile_phone}</li> 
+                    <li>{props.user.email}</li>  
+                    <li>{props.user.address}</li>            
+                    <li>{props.user.phone}</li> 
                 </ul>
             </div>
             <div>

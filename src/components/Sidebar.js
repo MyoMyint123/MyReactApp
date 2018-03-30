@@ -7,6 +7,7 @@ const Sidebar = ()=>(
         <li><Link to="/about" >About Us</Link></li>
         <li><Link to="/picker" >Picker</Link></li>
         <li><Link to="/users" >Users</Link></li>
+        <li><Link to="/products" >Products</Link></li>
     </div>
 )
 

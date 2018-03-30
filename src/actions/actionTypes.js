@@ -1,1 +1,5 @@
-export const LOAD_CATS_SUCCESS = 'LOAD_CATS_SUCCESS';
+
+
+export const SELECT_SUBREDDIT = 'SELECT_SUBREDDIT';
+export const LOAD_USERS = 'LOAD_USERS';
+export const LOAD_PRODUCTS = 'LOAD_PRODUCTS';

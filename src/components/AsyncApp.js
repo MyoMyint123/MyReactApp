@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { selectSubreddit } from '../actions/actions'
+import { subreddit } from '../actions/'
 import Picker from '../components/Picker'
 
 class AsyncApp extends Component {
@@ -17,7 +17,7 @@ class AsyncApp extends Component {
  
  
   handleChange(nextSubreddit) {
-    this.props.dispatch(selectSubreddit(nextSubreddit))
+    this.props.dispatch(subreddit.selectSubreddit(nextSubreddit))
   }
 
  
