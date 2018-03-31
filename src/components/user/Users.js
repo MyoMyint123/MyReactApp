@@ -14,6 +14,7 @@ class Users extends Component {
     this.state = {
       show: true,
       detail: false, 
+      create: false,
       detailData: null     
     };
 
@@ -54,13 +55,17 @@ class Users extends Component {
 
   }
 
+  handleNewform = () => {
+    this.setState({show: false, detail: false, create: true});
+  }
+
   handleDefault = () =>{
     this.setState({show: true, detail: false});
   }
   
   render() {
     const { users} = this.props;
-    const { show, detail, detailData } = this.state;
+    const { show, detail, create, detailData } = this.state;
     return (
       <Page>
         {

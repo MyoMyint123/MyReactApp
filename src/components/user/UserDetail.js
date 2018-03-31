@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 
 const UserDetail = (props) =>{
     return(
-        <div className="page-content">
+        <div>
             <div>
                 <ul>
                     <li>{props.user.name}</li>          
