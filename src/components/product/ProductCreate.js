@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ProductForm from './ProductForm'
+import ProductApi from '../../services/api2'
 
 class ProductCreate extends Component{
     constructor(props){
@@ -17,8 +18,12 @@ class ProductCreate extends Component{
         return this.setState({product});
     }
 
-    handleSave =()=>{
-        
+    handleSave =(event)=>{
+      event.preventDefault();
+        console.log(this.state.product);
+      ProductApi.createProduct(this.state.product).then(response=>{
+        // console.log(response);
+      })
     }
 
     render() {

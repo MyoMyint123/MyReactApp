@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-const ProductForm = ({name, onChange, value, placeholder}) => {
+const ProductForm = ({name, onChange, onSave, value, placeholder}) => {
     let wrapperClass = 'form-group';
       
     return (
@@ -13,6 +13,7 @@ const ProductForm = ({name, onChange, value, placeholder}) => {
             placeholder={placeholder}
             value={value}
             onChange={onChange}/>
+            <input type="submit" onClick={onSave} value="Save" />
         </div>
       </div>
     );
