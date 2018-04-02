@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 
 import { productActions } from '../../actions'
 import ProductForm from './ProductForm'
-import ProductApi from '../../services/api2'
 
 class ProductCreate extends Component{
     constructor(props){
@@ -24,20 +23,24 @@ class ProductCreate extends Component{
 
     handleSave =(event)=>{
       event.preventDefault();
+      console.log(this.state.product)
       this.props.actions.createProduct(this.state.product).then(response=>{
-        console.log(response)
+        // console.log(response)
+        this.setState({product:{name:'',description: '', price: ''}});
       });
       
     }
 
     render() {
+      const product = this.state.product;
         return (
           <div>
             <h3>New Product</h3>
             <ProductForm 
-              product={this.state.product} 
+              product={product} 
               onSave={this.handleSave}
               onChange={this.handleChange}
+              callbackDefault={()=>this.props.callbackDefault()}
             />
           </div>
         );

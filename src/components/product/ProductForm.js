@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import InputField from './InputField'
 
-const ProductForm = ({product, onChange, onSave}) => {
+const ProductForm = ({product, onChange, onSave, callbackDefault}) => {
     let wrapperClass = 'form-group';
       
     return (
       <div className={wrapperClass}>
         <div className="field">
+
           <InputField
             type = "text"
             name = "name"
@@ -28,7 +29,9 @@ const ProductForm = ({product, onChange, onSave}) => {
             placeholder="Enter a price"
             onChange={onChange} />
 
-          <input type="submit" value="Save" onClick={onSave} />
+            <input className="btn btn-success btn-sm" type="submit" value="Save" onClick={onSave} />&nbsp;&nbsp;
+
+            <input className="btn btn-default btn-sm" type="button" value="Go To Product" onClick={callbackDefault} />
         </div>
       </div>
     );

@@ -1,5 +1,5 @@
 import * as types from './actionTypes'
-import ProductApi from '../services/api2'
+import { createProductApi } from '../services/api'
 
  
 export function loadProducts(products) {
@@ -15,7 +15,7 @@ export function createProductSuccess(product) {
 
 export function createProduct(product) {
   return function (dispatch) {
-    return ProductApi.createProduct(product).then(responseProduct => {
+    return createProductApi(product).then(responseProduct => {
       dispatch(createProductSuccess(responseProduct));
       return responseProduct;
     }).catch(error => {

@@ -24,6 +24,7 @@ class Products extends Component{
     componentDidMount(){
         getProducts().then((data) => {
             //   console.log(data['records'])
+            console.log(JSON.stringify(data['records']))
               this.props.dispatch(productActions.loadProducts(data['records']))
             });    
 
@@ -41,7 +42,7 @@ class Products extends Component{
     }
 
     handleDefault = ()=>{
-        this.setState({show: true, detail: false});
+        this.setState({show: true, detail: false, create:false});
     }
 
     render(){
@@ -70,7 +71,7 @@ class Products extends Component{
                 {
                     create ?
                             <div className="page-content">
-                                <ProductCreate />
+                                <ProductCreate callbackDefault={()=>this.handleDefault()} />
                             </div>
                            :
                             null

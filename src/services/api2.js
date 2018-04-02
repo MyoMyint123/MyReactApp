@@ -1,9 +1,9 @@
 
 
 class ProductApi {
-
+    static url = 'http://localhost:90/apiTest/';
     static createProduct(product) {
-      const request = new Request('http://localhost:8080/apiTest/product/create.php', {
+      const request = new Request(`{url}/product/create.php`, {
         method: 'POST',
         headers: new Headers({
           'Content-Type': 'application/json'
