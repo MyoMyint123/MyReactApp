@@ -1,4 +1,8 @@
 import React, { Component } from 'react'
+import {bindActionCreators} from 'redux';
+import { connect } from 'react-redux'
+
+import { productActions } from '../../actions'
 import ProductForm from './ProductForm'
 import ProductApi from '../../services/api2'
 
@@ -20,10 +24,10 @@ class ProductCreate extends Component{
 
     handleSave =(event)=>{
       event.preventDefault();
-        console.log(this.state.product);
-      ProductApi.createProduct(this.state.product).then(response=>{
-        // console.log(response);
-      })
+      this.props.actions.createProduct(this.state.product).then(response=>{
+        console.log(response)
+      });
+      
     }
 
     render() {
@@ -31,9 +35,7 @@ class ProductCreate extends Component{
           <div>
             <h3>New Product</h3>
             <ProductForm 
-              name="name"
-              placeholder="Enter a name"
-              value={this.state.product.name} 
+              product={this.state.product} 
               onSave={this.handleSave}
               onChange={this.handleChange}
             />
@@ -42,4 +44,16 @@ class ProductCreate extends Component{
       }
 }
 
-export default ProductCreate;
+function mapStateToProps(state) {
+  return {
+    product: state.products
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(productActions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(ProductCreate);

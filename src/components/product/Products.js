@@ -23,7 +23,7 @@ class Products extends Component{
 
     componentDidMount(){
         getProducts().then((data) => {
-              console.log(data['records'])
+            //   console.log(data['records'])
               this.props.dispatch(productActions.loadProducts(data['records']))
             });    
 
@@ -46,7 +46,7 @@ class Products extends Component{
 
     render(){
         const { show, detail, create, detailData} = this.state;
-        console.log(detailData);
+        // console.log(detailData);
         const { products } = this.props;
         return(
             <Page>

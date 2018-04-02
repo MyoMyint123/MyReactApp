@@ -3,7 +3,7 @@
 class ProductApi {
 
     static createProduct(product) {
-      const request = new Request('http://localhost:90/apiTest/product/create.php', {
+      const request = new Request('http://localhost:8080/apiTest/product/create.php', {
         method: 'POST',
         headers: new Headers({
           'Content-Type': 'application/json'
@@ -12,7 +12,7 @@ class ProductApi {
       });
   
   
-      return fetch(request).then(response => {
+      return fetch(request).then((res) => res.json()).then(response => {
         return response;
       }).catch(error => {
         return error;

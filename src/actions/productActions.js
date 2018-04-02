@@ -9,8 +9,8 @@ export function loadProducts(products) {
   }
 }
 
-export function createProductSuccess(Product) {
-  return {type: types.CREATE_PRODUCT_SUCCESS, Product}
+export function createProductSuccess(product) {
+  return {type: types.CREATE_PRODUCT_SUCCESS, product}
 }
 
 export function createProduct(product) {

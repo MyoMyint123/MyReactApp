@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { subreddit } from '../actions/'
+import { subreddit } from '../actions/index'
 import Picker from '../components/Picker'
 
 class AsyncApp extends Component {

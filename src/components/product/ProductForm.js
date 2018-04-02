@@ -1,19 +1,34 @@
 import React, { Component } from 'react'
+import InputField from './InputField'
 
-const ProductForm = ({name, onChange, onSave, value, placeholder}) => {
+const ProductForm = ({product, onChange, onSave}) => {
     let wrapperClass = 'form-group';
       
     return (
       <div className={wrapperClass}>
         <div className="field">
-          <input
+          <InputField
+            type = "text"
+            name = "name"
+            value = {product.name}
+            placeholder = "Enter a name"
+            onChange={onChange} />
+
+          <InputField
             type="text"
-            name={name}
-            className="form-control"
-            placeholder={placeholder}
-            value={value}
-            onChange={onChange}/>
-            <input type="submit" onClick={onSave} value="Save" />
+            name="description"
+            value={product.description}
+            placeholder="Enter a description"
+            onChange={onChange} />
+
+          <InputField
+            type="text"
+            name="price"
+            value={product.price}
+            placeholder="Enter a price"
+            onChange={onChange} />
+
+          <input type="submit" value="Save" onClick={onSave} />
         </div>
       </div>
     );

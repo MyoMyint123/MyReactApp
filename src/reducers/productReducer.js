@@ -5,10 +5,7 @@ export default function products(state = [], action){
       case types.LOAD_PRODUCTS:
         return action.products
       case types.CREATE_PRODUCT_SUCCESS:
-        return [
-          ...state.filter(product => product.id !== action.product.id),
-          Object.assign({}, action.product)
-        ]
+        return Object.assign({}, {'product':action.product})      
       default:
         return state
     }
