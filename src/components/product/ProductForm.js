@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom';
+
 import InputField from './InputField'
 
-const ProductForm = ({product, onChange, onSave, callbackDefault}) => {
+
+const ProductForm = ({product, onChange, onSave, callbackDefault }) => {
     let wrapperClass = 'form-group';
       
     return (
@@ -30,8 +33,7 @@ const ProductForm = ({product, onChange, onSave, callbackDefault}) => {
             onChange={onChange} />
 
             <input className="btn btn-success btn-sm" type="submit" value="Save" onClick={onSave} />&nbsp;&nbsp;
-
-            <input className="btn btn-default btn-sm" type="button" value="Go To Product" onClick={callbackDefault} />
+            <input className="btn btn-primary btn-sm" type="button" value="Back" onClick={callbackDefault} />
         </div>
       </div>
     );

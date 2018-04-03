@@ -5,6 +5,7 @@ import Users from './user/Users'
 import AsyncApp from './AsyncApp'
 import Picker from './Picker'
 import Products from './product/Products'
+import ProductCreate from './product/ProductCreate'
 
 export {
     HomePage,
@@ -12,5 +13,6 @@ export {
     AsyncApp,
     Picker,
     Users,
-    Products
+    Products,
+    ProductCreate
 }

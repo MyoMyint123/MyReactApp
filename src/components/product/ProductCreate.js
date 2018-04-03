@@ -34,15 +34,15 @@ class ProductCreate extends Component{
     render() {
       const product = this.state.product;
         return (
-          <div>
-            <h3>New Product</h3>
-            <ProductForm 
-              product={product} 
-              onSave={this.handleSave}
-              onChange={this.handleChange}
-              callbackDefault={()=>this.props.callbackDefault()}
-            />
-          </div>
+            <div>
+              <h3>New Product</h3>
+              <ProductForm 
+                product={product} 
+                onSave={this.handleSave}
+                onChange={this.handleChange}
+                callbackDefault={this.props.callbackDefault}
+              />
+            </div>
         );
       }
 }

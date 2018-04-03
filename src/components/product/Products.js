@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom';
 import { getProducts, getProductDetail } from '../../services/api'
 import { productActions } from '../../actions'
 
@@ -27,7 +28,7 @@ class Products extends Component{
             console.log(JSON.stringify(data['records']))
               this.props.dispatch(productActions.loadProducts(data['records']))
             });    
-
+            this.setState({create: false, show: true, detail: false});
     }
 
     handleDetail = (idSlug)=>{
@@ -42,8 +43,9 @@ class Products extends Component{
     }
 
     handleDefault = ()=>{
-        this.setState({show: true, detail: false, create:false});
+        this.componentDidMount();
     }
+
 
     render(){
         const { show, detail, create, detailData} = this.state;
@@ -55,7 +57,7 @@ class Products extends Component{
                     show ?
                         <div className="page-content">
                             <ProductTable products={products} callbackDetail={(idSlug)=>this.handleDetail(idSlug)} />
-                            <button className="btn btn-info btn-sm" onClick={this.handleNewform}>New Product</button>
+                            <button className="btn btn-info btn-sm" onClick={()=>this.handleNewform()}>New Product</button>
                         </div>
                         :
                         null

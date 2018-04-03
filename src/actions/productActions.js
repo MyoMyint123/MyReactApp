@@ -17,7 +17,7 @@ export function createProduct(product) {
   return function (dispatch) {
     return createProductApi(product).then(responseProduct => {
       dispatch(createProductSuccess(responseProduct));
-      return responseProduct;
+      // return responseProduct;
     }).catch(error => {
       throw(error);
     });
