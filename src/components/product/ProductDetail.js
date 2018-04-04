@@ -4,6 +4,7 @@ const ProductDetail = (props) => (
     <div>
             <div>
                 <ul>
+                    <li>{props.product.id}</li>
                     <li>{props.product.name}</li>          
                     <li>{props.product.description}</li>  
                     <li>{props.product.price}</li>            

@@ -3,14 +3,16 @@ import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux'
 
 import { productActions } from '../../actions'
-import ProductForm from './ProductForm'
+import ProductEditForm from './ProductEditForm'
 
-class ProductCreate extends Component{
+class ProductEdit extends Component{
     constructor(props){
         super(props)
         this.state = {
-            product: {name: '', description: '', price: ''}
+            product: this.props.product,
+            saving: false
           };
+        
     }
 
     handleChange =(event)=>{
@@ -21,21 +23,23 @@ class ProductCreate extends Component{
     }
 
     handleSave =(event)=>{
-      event.preventDefault();
-      console.log(this.state.product)
-      this.props.actions.createProduct(this.state.product).then(response=>{
-        // console.log(response)
-        this.setState({product:{name:'',description: '', price: ''}});
-      });
+    //   event.preventDefault();
+    //   console.log(this.state.product)
+    //   this.props.actions.createProduct(this.state.product).then(response=>{
+    //     // console.log(response)
+    //     this.setState({product:{name:'',description: '', price: ''}});
+    //   });
       
     }
 
     render() {
+        
       const product = this.state.product;
+      console.log(product)
         return (
             <div>
               <h3>New Product</h3>
-              <ProductForm 
+              <ProductEditForm 
                 product={product} 
                 onSave={this.handleSave}
                 onChange={this.handleChange}
@@ -58,4 +62,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(ProductCreate);
+export default connect(mapStateToProps,mapDispatchToProps)(ProductEdit);

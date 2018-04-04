@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { subreddit } from '../actions/index'
 import Picker from '../components/Picker'
+import Page from './Page'
 
 class AsyncApp extends Component {
   constructor(props) {
@@ -25,11 +26,13 @@ class AsyncApp extends Component {
     const { selectedSubreddit} = this.props
     return (
       <div>
-        <Picker
-          value={selectedSubreddit}
-          onChange={this.handleChange}
-          options={['reactjs', 'frontend']}
-        />
+        <Page>
+          <Picker
+            value={selectedSubreddit}
+            onChange={this.handleChange}
+            options={['reactjs', 'frontend']}
+          />
+        </Page>
       </div>
     )
   }

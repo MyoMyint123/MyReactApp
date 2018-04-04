@@ -9,6 +9,7 @@ import Page from '../Page'
 import ProductTable from './ProductTable'
 import ProductDetail from './ProductDetail'
 import ProductCreate from './ProductCreate'
+import ProductEdit from './ProductEdit'
 
 
 class Products extends Component{
@@ -18,6 +19,7 @@ class Products extends Component{
             show: true,
             detail: false, 
             create: false,
+            edit: false,
             detailData: null
         };
     }
@@ -28,18 +30,25 @@ class Products extends Component{
             console.log(JSON.stringify(data['records']))
               this.props.dispatch(productActions.loadProducts(data['records']))
             });    
-            this.setState({create: false, show: true, detail: false});
+            this.setState({create: false, show: true, detail: false, edit: false});
     }
 
     handleDetail = (idSlug)=>{
         getProductDetail(idSlug).then((data) => {
             // console.log(data);
-            this.setState({detailData: data, show: false, detail: true});
+            this.setState({detailData: data, show: false, create: false, detail: true, edit: false});
         });        
+    }
+    handleEdit = (idSlug)=>{
+        getProductDetail(idSlug).then((data) => {
+            // console.log(data);
+            this.setState({detailData: data, show: false, detail: false, create: false, edit: true});
+        });        
+        
     }
 
     handleNewform = ()=>{
-        this.setState({show: false, detail: false, create: true});
+        this.setState({show: false, detail: false, create: true, edit: false});
     }
 
     handleDefault = ()=>{
@@ -48,7 +57,7 @@ class Products extends Component{
 
 
     render(){
-        const { show, detail, create, detailData} = this.state;
+        const { show, detail, create, edit, detailData} = this.state;
         // console.log(detailData);
         const { products } = this.props;
         return(
@@ -56,7 +65,7 @@ class Products extends Component{
                 {
                     show ?
                         <div className="page-content">
-                            <ProductTable products={products} callbackDetail={(idSlug)=>this.handleDetail(idSlug)} />
+                            <ProductTable products={products} callbackEdit={(idSlug)=>this.handleEdit(idSlug)} callbackDetail={(idSlug)=>this.handleDetail(idSlug)} />
                             <button className="btn btn-info btn-sm" onClick={()=>this.handleNewform()}>New Product</button>
                         </div>
                         :
@@ -74,6 +83,14 @@ class Products extends Component{
                     create ?
                             <div className="page-content">
                                 <ProductCreate callbackDefault={()=>this.handleDefault()} />
+                            </div>
+                           :
+                            null
+                }
+                {
+                    edit ?
+                            <div className="page-content">
+                                <ProductEdit product={detailData} callbackDefault={()=>this.handleDefault()} />
                             </div>
                            :
                             null

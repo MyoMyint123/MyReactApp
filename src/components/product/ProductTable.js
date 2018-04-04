@@ -6,7 +6,7 @@ class ProductTable extends Component{
     }
 
     render(){
-        const { products, callbackDetail } = this.props;
+        const { products, callbackDetail,callbackEdit } = this.props;
         return(
             <table className="table table-bordered">
                 <thead>
@@ -27,7 +27,10 @@ class ProductTable extends Component{
                                     <td>{product.name}</td>
                                     <td>{product.description}</td>
                                     <td>{product.price}</td>
-                                    <td><button className="btn btn-info btn-sm" onClick={() => callbackDetail(product.id) }>Detail</button></td>
+                                    <td>
+                                        <button className="btn btn-info btn-sm" onClick={() => callbackDetail(product.id) }>Detail</button>&nbsp;
+                                        <button className="btn btn-primary btn-sm" onClick={() => callbackEdit(product.id) }>Edit</button>
+                                    </td>
                                 </tr>                                
                             )
                         })
