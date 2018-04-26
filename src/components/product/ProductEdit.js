@@ -9,7 +9,8 @@ class ProductEdit extends Component{
     constructor(props){
         super(props)
         this.state = {
-            product: this.props.product,
+            message: null,
+            product: props.product,
             saving: false
           };
         
@@ -23,21 +24,28 @@ class ProductEdit extends Component{
     }
 
     handleSave =(event)=>{
-    //   event.preventDefault();
-    //   console.log(this.state.product)
-    //   this.props.actions.createProduct(this.state.product).then(response=>{
-    //     // console.log(response)
-    //     this.setState({product:{name:'',description: '', price: ''}});
-    //   });
+      event.preventDefault();
+      // console.log(this.state.product)
+      this.props.actions.updateProduct(this.state.product).then(response=>{
+        // console.log(response)
+        this.setState({product:{name:'',description: '', price: ''},message:response.message});
+      });
       
     }
 
     render() {
         
-      const product = this.state.product;
-      console.log(product)
+      const {product, message} = this.state;
+
+      console.log(message)
         return (
             <div>
+              {
+                message ? 
+                          <div>{message}</div>
+                         :
+                          <div>saving error</div>
+              }
               <h3>New Product</h3>
               <ProductEditForm 
                 product={product} 
@@ -52,7 +60,7 @@ class ProductEdit extends Component{
 
 function mapStateToProps(state) {
   return {
-    product: state.products
+    messages: state.messages
   };
 }
 
@@ -62,4 +70,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(ProductEdit);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductEdit);

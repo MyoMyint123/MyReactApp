@@ -3,11 +3,8 @@ import * as types from '../actions/actionTypes'
 
 export default function products(state = [], action){
     switch (action.type) {
-      case types.LOAD_PRODUCTS:
+      case types.LOAD_PRODUCTS_SUCCESS:
         return action.products
-      case types.CREATE_PRODUCT_SUCCESS:
-        // browserHistory.push('/products');
-        return state      
       default:
         return state
     }

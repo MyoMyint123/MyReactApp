@@ -1,13 +1,15 @@
 import { combineReducers } from 'redux'
 import selectedSubreddit from './selectedSubreddit'
-import users from './userReducer';
-import products from './productReducer';
+import users from './userReducer'
+import products from './productReducer'
+import messages from './messageReducer'
 
 
 const rootReducer = combineReducers({
     selectedSubreddit,
     users,
-    products
+    products,
+    messages
   })
    
 export default rootReducer

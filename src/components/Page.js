@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import Sidebar from './Sidebar'
 
 class Page extends Component {
     constructor(props){
@@ -8,11 +9,18 @@ class Page extends Component {
     render(){
         const children = this.props.children;
         return(
-            <div className="page">
-                <div className="header">
-                    <span>Page Header</span>
+            <div className="d-flex">
+                <div className="sidebar">
+                <Sidebar />
                 </div>
-                {children}
+                <div className="content">
+                    <div className="page">
+                        <div className="header">
+                            <span>Page Header</span>
+                        </div>
+                        {children}
+                    </div>
+                </div>
             </div>
         )
     }

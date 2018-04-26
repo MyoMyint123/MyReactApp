@@ -1,15 +1,18 @@
 import React from 'react'
-import Page from '../Page'
+import NavBar from '../NavBar';
 
 class AboutPage extends React.Component {
   render() {
     return (
-      <Page>
         <div>
-          <h1>About</h1>
-          <p>coming soon!</p>
+          <div>
+            <NavBar />
+          </div>
+          <div>
+            <h1>About</h1>
+            <p>This is about page</p>
+          </div>
         </div>
-      </Page>
     );
   }
 }

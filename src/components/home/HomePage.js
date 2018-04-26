@@ -1,17 +1,20 @@
 import React from 'react';
-import {Link} from 'react-router';
-import Page from '../Page';
+import NavBar from '../NavBar';
 
 
 class HomePage extends React.Component {
   render() {
     return (
-      <Page>
-        <div className="home">
+
+      <div>
+        <div>
+          <NavBar />
+        </div>
+        <div>
           <h1>Home</h1>
           <p>This is home page</p>
         </div>
-      </Page>
+      </div>
     );
   }
 }

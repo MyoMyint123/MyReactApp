@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import {bindActionCreators} from 'redux'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom';
-import { getProducts, getProductDetail } from '../../services/api'
+import { Link } from 'react-router-dom'
+import { getProductDetail } from '../../services/api'
 import { productActions } from '../../actions'
 
 import Page from '../Page'
@@ -25,12 +26,9 @@ class Products extends Component{
     }
 
     componentDidMount(){
-        getProducts().then((data) => {
-            //   console.log(data['records'])
-            console.log(JSON.stringify(data['records']))
-              this.props.dispatch(productActions.loadProducts(data['records']))
-            });    
-            this.setState({create: false, show: true, detail: false, edit: false});
+        this.props.actions.loadProducts()
+
+        this.setState({create: false, show: true, detail: false, edit: false});
     }
 
     handleDetail = (idSlug)=>{
@@ -55,6 +53,9 @@ class Products extends Component{
         this.componentDidMount();
     }
 
+    handleDelete = (idSlug)=>{
+        console.log(idSlug)
+    }
 
     render(){
         const { show, detail, create, edit, detailData} = this.state;
@@ -65,7 +66,7 @@ class Products extends Component{
                 {
                     show ?
                         <div className="page-content">
-                            <ProductTable products={products} callbackEdit={(idSlug)=>this.handleEdit(idSlug)} callbackDetail={(idSlug)=>this.handleDetail(idSlug)} />
+                            <ProductTable products={products} callbackEdit={(idSlug)=>this.handleEdit(idSlug)} callbackDetail={(idSlug)=>this.handleDetail(idSlug)} callbackDelete={(idSlug)=>this.handleDelete(idSlug)} />
                             <button className="btn btn-info btn-sm" onClick={()=>this.handleNewform()}>New Product</button>
                         </div>
                         :
@@ -107,6 +108,12 @@ function mapStateToProps(state) {
     return {
         products
     }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+      actions: bindActionCreators(productActions, dispatch)
+    };
   }
    
-export default connect(mapStateToProps)(Products)
+export default connect(mapStateToProps, mapDispatchToProps)(Products)
