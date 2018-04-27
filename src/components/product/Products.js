@@ -21,7 +21,8 @@ class Products extends Component{
             detail: false, 
             create: false,
             edit: false,
-            detailData: null
+            detailData: null,
+            message: null
         };
     }
 
@@ -41,7 +42,7 @@ class Products extends Component{
         getProductDetail(idSlug).then((data) => {
             // console.log(data);
             this.setState({detailData: data, show: false, detail: false, create: false, edit: true});
-        });        
+        });      
         
     }
 
@@ -53,20 +54,24 @@ class Products extends Component{
         this.componentDidMount();
     }
 
-    handleDelete = (idSlug)=>{
+    handleDelete = (event,idSlug)=>{
         console.log(idSlug)
+        event.preventDefault();
+        this.props.actions.deleteProduct(idSlug);
+        this.componentDidMount()
     }
 
     render(){
         const { show, detail, create, edit, detailData} = this.state;
-        // console.log(detailData);
-        const { products } = this.props;
+        const { products, messages } = this.props;
+        const local_message = messages['message']
         return(
             <Page>
                 {
                     show ?
                         <div className="page-content">
-                            <ProductTable products={products} callbackEdit={(idSlug)=>this.handleEdit(idSlug)} callbackDetail={(idSlug)=>this.handleDetail(idSlug)} callbackDelete={(idSlug)=>this.handleDelete(idSlug)} />
+                            <h5>{local_message}</h5>
+                            <ProductTable products={products} callbackEdit={(idSlug)=>this.handleEdit(idSlug)} callbackDetail={(idSlug)=>this.handleDetail(idSlug)} callbackDelete={(event,idSlug)=>this.handleDelete(event,idSlug)} />
                             <button className="btn btn-info btn-sm" onClick={()=>this.handleNewform()}>New Product</button>
                         </div>
                         :
@@ -103,10 +108,10 @@ class Products extends Component{
 }
 
 function mapStateToProps(state) {
-    const { products } = state
-   
+    const { products, messages } = state   
     return {
-        products
+        products,
+        messages
     }
 }
 

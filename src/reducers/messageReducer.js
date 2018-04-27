@@ -13,7 +13,7 @@ import * as types from '../actions/actionTypes'
             // browserHistory.push('/products');
             return action.message;
         default:
-            return {'danger':'MMMMMMMM'}
+            return {'message':''}
     }
   }
 

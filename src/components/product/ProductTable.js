@@ -7,7 +7,8 @@ class ProductTable extends Component{
 
     render(){
         const { products, callbackDetail, callbackEdit, callbackDelete } = this.props;
-        console.log(products)
+        console.log(products['records'])
+        const local_products = products['records']
         return(
             <table className="table table-bordered">
                 <thead>
@@ -21,10 +22,11 @@ class ProductTable extends Component{
                 </thead>
                 <tbody>
                     {
+                        
 
-                        products ?
+                        local_products ?
                                 
-                                    products.map((product,index)=>{
+                        local_products.map((product,index)=>{
                                         return(
                                             <tr key={index}>
                                                 <td>{index+1}</td>
@@ -34,7 +36,7 @@ class ProductTable extends Component{
                                                 <td>
                                                     <button className="btn btn-info btn-sm" onClick={() => callbackDetail(product.id) }>Detail</button>&nbsp;
                                                     <button className="btn btn-primary btn-sm" onClick={() => callbackEdit(product.id) }>Edit</button>&nbsp;
-                                                    <button className="btn btn-danger btn-sm" onClick={() => callbackDelete(product.id) }>Dele</button>
+                                                    <button className="btn btn-danger btn-sm" onClick={(event) => callbackDelete(event,product.id) }>Dele</button>
                                                 </td>
                                             </tr>                                
                                         )

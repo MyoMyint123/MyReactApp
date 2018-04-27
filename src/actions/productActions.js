@@ -25,8 +25,8 @@ export function createProductSuccess(message) {
 
 export function createProduct(product) {
   return function (dispatch) {
-    return createProductApi(product).then(responseProduct => {
-      dispatch(createProductSuccess(responseProduct));
+    return createProductApi(product).then(responseMessage => {
+      dispatch(createProductSuccess(responseMessage));
       // return responseProduct;
     }).catch(error => {
       throw(error);
@@ -40,9 +40,10 @@ export function updateProductSuccess(message) {
 
 export function updateProduct(product) {
   return function (dispatch) {
-    return updateProductApi(product).then(responseProduct => {
-      dispatch(updateProductSuccess(responseProduct));
+    return updateProductApi(product).then(responseMessage => {
+      dispatch(updateProductSuccess(responseMessage));
       // return responseProduct;
+      // console.log(responseMessage)
     }).catch(error => {
       throw(error);
     });
@@ -55,10 +56,10 @@ export function deleteProductSuccess(message) {
 
 export function deleteProduct(product) {
   return function (dispatch) {
-    return deleteProductApi(product).then(responseProduct => {
-      dispatch(deleteProductSuccess(responseProduct));
+    return deleteProductApi(product).then(responseMessage => {
+      dispatch(deleteProductSuccess(responseMessage));
       // return responseProduct;
-      console.log(responseProduct)
+      console.log(responseMessage)
     }).catch(error => {
       throw(error);
     });

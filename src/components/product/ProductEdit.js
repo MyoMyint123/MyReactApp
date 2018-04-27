@@ -9,7 +9,6 @@ class ProductEdit extends Component{
     constructor(props){
         super(props)
         this.state = {
-            message: null,
             product: props.product,
             saving: false
           };
@@ -26,23 +25,21 @@ class ProductEdit extends Component{
     handleSave =(event)=>{
       event.preventDefault();
       // console.log(this.state.product)
-      this.props.actions.updateProduct(this.state.product).then(response=>{
-        // console.log(response)
-        this.setState({product:{name:'',description: '', price: ''},message:response.message});
-      });
-      
+      this.props.actions.updateProduct(this.state.product)
+        this.setState({product:{name:'',description: '', price: ''}});
     }
 
     render() {
         
-      const {product, message} = this.state;
-
-      console.log(message)
+      const {product} = this.state
+      const {messages} = this.props
+      const local_messages = messages['message']
+      console.log(messages)
         return (
             <div>
               {
-                message ? 
-                          <div>{message}</div>
+                local_messages ? 
+                          <div>{local_messages}</div>
                          :
                           <div>saving error</div>
               }
@@ -59,8 +56,9 @@ class ProductEdit extends Component{
 }
 
 function mapStateToProps(state) {
+  const { messages } = state
   return {
-    messages: state.messages
+    messages
   };
 }
 
