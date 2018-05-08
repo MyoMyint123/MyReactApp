@@ -5,10 +5,11 @@ const InputField = ({name, value, type, placeholder, onChange, onSave}) => {
       
     return (
       <div className={wrapperClass}>
-        <div className="field">
+        <div className="col-sm-offset-2 col-sm-6">
           <input
             type={type}
             name={name}
+            className="form-control"
             placeholder={placeholder}
             value={value}
             onChange={onChange} />

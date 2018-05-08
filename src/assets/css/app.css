@@ -49,3 +49,9 @@ body{
 .page-content{
     padding:20px 10px;
 }
+
+/* Login page */
+.login-content{
+    width: 50%;
+    margin: 0 auto;
+}
