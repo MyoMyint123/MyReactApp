@@ -1,6 +1,6 @@
 
 // const url = 'http://localhost:3000';
-const url = 'http://localhost:8080/apiTest';
+const url = 'http://api.local:90';
 
 // const getUsers = () => fetch(`${url}/users`).then((res) => res.json());
 // const getUserDetail = (idSlug) => fetch(`${url}/users?id=${idSlug}`).then((res) => res.json());

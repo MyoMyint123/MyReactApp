@@ -41,7 +41,7 @@ class ProductEdit extends Component{
                 local_messages ? 
                           <div>{local_messages}</div>
                          :
-                          <div>saving error</div>
+                          null
               }
               <h3>New Product</h3>
               <ProductEditForm 
